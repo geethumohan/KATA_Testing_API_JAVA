@@ -1,8 +1,12 @@
 package support;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import org.json.simple.JSONObject;
 
 import java.io.FileReader;
+
 
 public class JSONFileParser {
     public static String getJSONFromFile(String path){
@@ -15,5 +19,10 @@ public class JSONFileParser {
             e.printStackTrace();
         }
         return "JSON load failed";
+    }
+
+    public static String convertClassDataToJSONString(Object classObj) throws JsonProcessingException {
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        return ow.writeValueAsString(classObj);
     }
 }

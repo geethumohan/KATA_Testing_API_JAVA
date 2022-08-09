@@ -7,6 +7,7 @@ public class Owner {
     private String address;
     private String city;
     private String telephone;
+    private Pet pets [];
 
     public int getId() {
         return id;
@@ -54,5 +55,13 @@ public class Owner {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public Pet[] getPets() {
+        return pets;
+    }
+
+    public void setPet(Pet[] pet) {
+        this.pets = pet;
     }
 }

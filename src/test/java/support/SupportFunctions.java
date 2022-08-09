@@ -29,6 +29,18 @@ public class SupportFunctions {
         return response.getBody();
     }
 
+    public static ResponseBody postWithRequestParameters(String url, String requestParameter, String requestParameterValue, String json) {
+        response = RestAssured.given()
+                .header("content-type", MyConfig.CONTENT_TYPE)
+                .pathParam(requestParameter, requestParameterValue)
+                .body(json)
+                .contentType(ContentType.JSON)
+                .when()
+                .post(url);
+
+        return response.getBody();
+    }
+
     public static ResponseBody put(String url, String json) {
         response = RestAssured.given()
                 .header("content-type", MyConfig.CONTENT_TYPE)
@@ -50,6 +62,14 @@ public class SupportFunctions {
         return response.getBody();
     }
 
+    public static ResponseBody getUsingQueryParamter(String url, String queryParameter, String value){
+        response = RestAssured.given()
+                .queryParam(queryParameter, value)
+                .when()
+                .get(url);
+        return response.getBody();
+    }
+
     public static ResponseBody get(String url){
         response = RestAssured.given()
                 .when()
@@ -67,7 +87,7 @@ public class SupportFunctions {
         System.out.println(jsonArray);
         return mapper.readValue(jsonArray.toString(), classObj);
     }
-    public static String getResponseCode(){
-        return response.getHeader("Response" );
+    public static int getResponseCode(){
+        return response.getStatusCode();
     }
 }

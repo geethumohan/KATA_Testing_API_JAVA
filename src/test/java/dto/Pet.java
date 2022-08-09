@@ -9,9 +9,19 @@ public class Pet {
     private String name;
     private String birthDate;
     private Type type;
-    private Owner owner;
+    private String ownerId;
     @JsonIgnore
     private ArrayList<Visit> visits;
+
+    public Pet() {
+
+    }
+
+    public Pet(String name, String birthDate, Type type) {
+        this.name = name;
+        this.birthDate = birthDate;
+        this.type = type;
+    }
 
     public int getId() {
         return id;
@@ -45,12 +55,12 @@ public class Pet {
         this.type = type;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public String getOwnerID() {
+        return ownerId;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
     public ArrayList<Visit> getVisits() {

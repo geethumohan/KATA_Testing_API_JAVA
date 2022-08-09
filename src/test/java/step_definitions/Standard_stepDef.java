@@ -27,7 +27,7 @@ public class Standard_stepDef {
     public void theResponseCodeShouldBe(String responseCode)  {
         System.out.println("Returned response code : " + SupportFunctions.getResponseCode());
         Assert.assertEquals("Response code not as expected | ",
-                responseCode,
+                Integer.parseInt(responseCode),
                 SupportFunctions.getResponseCode()
         );
     }
