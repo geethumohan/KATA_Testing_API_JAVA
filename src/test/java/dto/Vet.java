@@ -1,0 +1,50 @@
+package dto;
+
+public class Vet {
+    private int id;
+    private String firstName;
+    private String lastName;
+    private Speciality specialties [];
+
+    public Vet() {
+
+    }
+
+    public Vet(String firstName, String lastName, Speciality[] specialties) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.specialties = specialties;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Speciality[] getSpecialties() {
+        return specialties;
+    }
+
+    public void setSpecialties(Speciality[] specialties) {
+        this.specialties = specialties;
+    }
+}
